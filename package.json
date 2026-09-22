@@ -1,0 +1,30 @@
+{
+  "name": "vendasta-mcp-server",
+  "version": "1.0.0",
+  "description": "MCP server for Vendasta's API — accounts, CRM, reputation, sales orders, conversations, social, and AI knowledge",
+  "type": "module",
+  "main": "dist/index.js",
+  "bin": {
+    "vendasta-mcp-server": "dist/index.js"
+  },
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "dev": "tsx src/index.ts"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.12.0",
+    "jsonwebtoken": "^9.0.2",
+    "zod": "^3.23.0"
+  },
+  "devDependencies": {
+    "@types/jsonwebtoken": "^9.0.7",
+    "@types/node": "^22.0.0",
+    "tsx": "^4.19.0",
+    "typescript": "^5.6.0"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "license": "MIT"
+}
