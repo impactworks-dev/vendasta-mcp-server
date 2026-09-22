@@ -1,0 +1,27 @@
+app = "vendasta-mcp-server"
+primary_region = "iad"
+
+[build]
+
+[env]
+  NODE_ENV = "production"
+  PORT = "3000"
+  VENDASTA_ENV = "prod"
+  # VENDASTA_CREDENTIALS_PATH is set via: fly secrets set VENDASTA_CREDENTIALS_JSON='<contents of your key file>'
+  # The remote entrypoint reads it from the env var directly when no file path is set.
+
+[http_service]
+  internal_port = 3000
+  force_https = true
+  auto_stop_machines = "stop"
+  auto_start_machines = true
+  min_machines_running = 0
+
+  [http_service.concurrency]
+    type = "connections"
+    hard_limit = 50
+    soft_limit = 25
+
+[[vm]]
+  size = "shared-cpu-1x"
+  memory = "256mb"
